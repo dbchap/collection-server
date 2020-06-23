@@ -7,7 +7,7 @@ const Helmet = require('koa-helmet')
 const respond = require('koa-respond')
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://mongo:27017/collection-app')
+mongoose.connect('mongodb://localhost:27017/collection-app')
 
 const app = new Koa()
 const router = new Router()
@@ -33,6 +33,7 @@ app.use(respond())
 // API routes
 require('./routes')(router)
 app.use(router.routes())
+app.use(require('koa-static')('./build'))
 app.use(router.allowedMethods())
 
 module.exports = app

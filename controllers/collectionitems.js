@@ -6,7 +6,6 @@ async function findAll(ctx) {
 }
 
 async function create(ctx) {
-    console.log(ctx.request.body);
     const collectionitem = new CollectionItem(ctx.request.body);
     const savedItem = await collectionitem.save();
     ctx.body = savedItem;
