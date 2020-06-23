@@ -6,8 +6,9 @@ const BodyParser = require('koa-bodyparser')
 const Helmet = require('koa-helmet')
 const respond = require('koa-respond')
 const mongoose = require('mongoose');
+const { mongoHost } = require('./config/appconsts')
 
-mongoose.connect('mongodb://localhost:27017/collection-app')
+mongoose.connect(mongoHost+'/collection-app')
 
 const app = new Koa()
 const router = new Router()

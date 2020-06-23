@@ -1,7 +1,7 @@
 const CollectionItem = require('../models/collectionitem');
 
 async function findAll(ctx) {
-    const collectionitems = await CollectionItem.find({});
+    const collectionitems = await CollectionItem.find({}).sort({createdAt:-1});
     ctx.body = collectionitems;
 }
 
